@@ -2,6 +2,8 @@
 
 一个集合了时钟、秒表、倒计时和随机数的小工具，基于 Svelte 框架开发的试水之作。
 
+[English Document](https://github.com/Dreamer-Paul/Kico-Tools/blob/main/README-EN.md)
+
 ## 使用方法
 
 1. `Star` 本项目
