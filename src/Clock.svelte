@@ -8,12 +8,12 @@
     onMount(() => {
         currentTime = getTime();
 
-		const interval = setInterval(() => {
-			currentTime = getTime();
-		}, 1000);
+        const interval = setInterval(() => {
+            currentTime = getTime();
+        }, 1000);
 
-		return () => clearInterval(interval);
-	});
+        return () => clearInterval(interval);
+    });
 </script>
 
 <div class="tool-content">
