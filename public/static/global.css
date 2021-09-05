@@ -1,4 +1,8 @@
 /* 重置 */
+:root{
+    --kt-red: red;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -142,6 +146,39 @@ body{
 .kico-tools .tool-notice button{
     color: #ff9800;
     background: none;
+}
+
+.kico-tools .tool-clock{
+    width: 13em;
+    height: 13em;
+    margin: 1em auto;
+    position: relative;
+    background: #eee;
+    border-radius: 10em;
+    transform: rotate(180deg);
+}
+
+.tool-clock .clock-hour, .tool-clock .clock-min, .tool-clock .clock-sec{
+    width: 2px;
+    height: 2em;
+    background: var(--kt-red);
+    
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform-origin: top;
+    /* transition: transform .3s; */
+    /* transition-timing-function: cubic-bezier(.18, .89, .32, 1.28); */
+}
+
+.tool-clock .clock-min{
+    height: 3.5em;
+    background: #999;
+}
+
+.tool-clock .clock-sec{
+    height: 5em;
+    background: #ccc;
 }
 
 

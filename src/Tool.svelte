@@ -24,9 +24,9 @@
 
     // 获取当前时间
     export function getTime(){
-        let date = new Date();
+        let date = new Date(), hour = date.getHours(), min = date.getMinutes(), sec = date.getSeconds();
 
-        return zeroFill(date.getHours()) + ":" + zeroFill(date.getMinutes()) + ":" + zeroFill(date.getSeconds());
+        return [zeroFill(hour) + ":" + zeroFill(min) + ":" + zeroFill(sec), hour, min, sec];
     }
 
     // 保存记录的时间
