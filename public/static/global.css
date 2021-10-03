@@ -158,27 +158,45 @@ body{
     transform: rotate(180deg);
 }
 
+.kico-tools .tool-clock::after{
+    content: "";
+    width: .5em;
+    height: .5em;
+    top: calc(50% - .25em);
+    left: calc(50% - .25em);
+    position: absolute;
+    background: #777;
+    border-radius: 1em;
+}
+
 .tool-clock .clock-hour, .tool-clock .clock-min, .tool-clock .clock-sec{
     width: 2px;
-    height: 2em;
-    background: var(--kt-red);
-    
+    height: 3.5em;
+    margin-left: -1px;
+
     top: 50%;
     left: 50%;
     position: absolute;
+    border-radius: 5px;
     transform-origin: top;
     /* transition: transform .3s; */
     /* transition-timing-function: cubic-bezier(.18, .89, .32, 1.28); */
 }
 
-.tool-clock .clock-min{
-    height: 3.5em;
+.tool-clock .clock-hour{
+    width: 3px;
+    margin-left: -1.5px;
     background: #999;
 }
 
-.tool-clock .clock-sec{
+.tool-clock .clock-min{
     height: 5em;
     background: #ccc;
+}
+
+.tool-clock .clock-sec{
+    height: 5.5em;
+    background: var(--kt-red);
 }
 
 
@@ -188,7 +206,7 @@ body{
 .kico-tools .tool-content input{
     display: block;
     font-size: 2.5em;
-    font-family: 'B612 Mono', monospace;
+    font-family: "Azeret Mono", monospace;
 }
 
 .kico-tools .tool-content input{

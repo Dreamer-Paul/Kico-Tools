@@ -30,9 +30,9 @@
 <div class="tool-content">
     <div class="tool-notice"></div>
     <div class="tool-clock">
-        <div class="clock-sec" style="transform: rotate({sec}deg)"></div>
         <div class="clock-min" style="transform: rotate({min}deg)"></div>
         <div class="clock-hour" style="transform: rotate({hour}deg)"></div>
+        <div class="clock-sec" style="transform: rotate({sec}deg)"></div>
     </div>
     <div class="tool-heading">
         <time>{currentTime}</time>
