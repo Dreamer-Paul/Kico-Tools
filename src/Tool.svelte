@@ -19,7 +19,7 @@
 
     // 时间转计次
     export function timeToCount(min, sec){
-        return (min * 60 * 10) + (sec * 100);
+        return (min * 60 * 100) + (sec * 100);
     }
 
     // 获取当前时间
