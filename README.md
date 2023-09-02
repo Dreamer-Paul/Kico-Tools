@@ -8,8 +8,8 @@
 
 1. `Star` 本项目
 2. 从这里 [下载](https://github.com/Dreamer-Paul/Kico-Tools/archive/refs/heads/main.zip) 源码
-3. 执行 `yarn install` 安装依赖，执行 `yarn run dev` 进入开发模式
-4. 执行 `yarn run build` 生成生产环境文件
+3. 执行 `pnpm i` 安装依赖，执行 `pnpm dev` 进入开发模式
+4. 执行 `pnpm build` 生成生产环境文件
 
 ## 开源协议
 

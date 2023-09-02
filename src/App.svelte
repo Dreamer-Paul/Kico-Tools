@@ -28,7 +28,7 @@
     {/if}
 </main>
 <footer>
-    <p>© 2021 By <a href="https://paul.ren" target="_blank">Dreamer-Paul</a>. Star this at <a href="https://github.com/Dreamer-Paul/Kico-Tools" target="_blank">GitHub</a></p>
+    <p>© {new Date().getFullYear()} By <a href="https://paul.ren" target="_blank">Dreamer-Paul</a>. Star this at <a href="https://github.com/Dreamer-Paul/Kico-Tools" target="_blank">GitHub</a></p>
 </footer>
 
 <style>

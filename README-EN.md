@@ -8,8 +8,8 @@ An tool website of clock, stopwatch, countdown and random numbers, based on the 
 
 1. `Star` this project
 2. Download source code from [here](https://github.com/Dreamer-Paul/Kico-Tools/archive/refs/heads/main.zip)
-3. Run command `yarn install` to install packages, then run command `yarn run dev` to run dev server
-4. Run command `yarn run build` to make production files
+3. Run command `pnpm i` to install packages, then run command `pnpm dev` to run dev server
+4. Run command `pnpm build` to make production files
 
 ## License
 
