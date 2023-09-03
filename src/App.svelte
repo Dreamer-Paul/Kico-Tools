@@ -32,17 +32,15 @@
 </footer>
 
 <style>
-    .kico-tools{
-        z-index: 1;
+    footer{
+        padding: .75em 0;
+        text-align: center;
     }
 
-    footer{
-        left: 0;
-        right: 0;
-        bottom: 0;
-        padding: .75em 0;
-        position: fixed;
-        text-align: center;
+    @media screen and (max-width: 768px) {
+        footer {
+            display: none;
+        }
     }
     footer p{
         color: #666;

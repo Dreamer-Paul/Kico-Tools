@@ -73,9 +73,9 @@
         {#if stopped && paused}
             <div class="input-group">
                 <input class="input" type="number" min="0" max="59" bind:value={min}/>
-                <span style="font-size: .85em">分</span>
+                <span>分</span>
                 <input class="input" type="number" min="0" max="59" bind:value={sec}/>
-                <span style="font-size: .85em">秒</span>
+                <span>秒</span>
             </div>
         {:else}
             <span class="number">{time}</span>
@@ -91,3 +91,17 @@
         <button on:click={reset}>重置</button>
     </div>
 </div>
+
+<style>
+    .tool-heading {
+        padding: 2em;
+    }
+
+    .tool-heading input {
+        height: 1.5em;
+    }
+
+    .input-group span {
+        font-size: 1rem;
+    }
+</style>

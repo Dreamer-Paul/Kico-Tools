@@ -78,3 +78,12 @@
     </div>
 </div>
 
+<style>
+    .tool-heading {
+        padding: 2em;
+    }
+
+    .tool-heading input {
+        height: 1.5em;
+    }
+</style>
