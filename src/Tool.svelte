@@ -40,4 +40,9 @@
 
         return time ? JSON.parse(time) : [];
     }
+
+    // 类名处理
+    export function clsn(...clsn){
+        return clsn.filter(item => item).join(" ");
+    }
 </script>

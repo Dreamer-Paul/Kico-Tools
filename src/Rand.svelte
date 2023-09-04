@@ -33,9 +33,7 @@
             timer = clearInterval(timer);
             audio.pause();
 
-            lastResults= [currentRand, ...lastResults];
-
-            console.log(lastResults);
+            lastResults = [currentRand, ...lastResults];
         }
 
     }
@@ -72,10 +70,8 @@
     </ul>
 </div>
 <div class="tool-foot">
-    <div class="foot-control">
-        <button on:click={start}>{paused ? (currentRand === 0 ? "开始" : "继续") : "暂停"}</button>
-        <button on:click={reset}>重置</button>
-    </div>
+    <button on:click={start}>{paused ? (currentRand === 0 ? "开始" : "继续") : "暂停"}</button>
+    <button on:click={reset}>重置</button>
 </div>
 
 <style>

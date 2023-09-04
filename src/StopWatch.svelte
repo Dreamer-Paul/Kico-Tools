@@ -59,8 +59,6 @@
     </ul>
 </div>
 <div class="tool-foot">
-    <div class="foot-control">
-        <button on:click={start}>{stopped ? "开始" : (paused ? "继续" : "暂停")}</button>
-        <button on:click={reset}>{paused ? "重置" : "计次"}</button>
-    </div>
+    <button on:click={start}>{stopped ? "开始" : (paused ? "继续" : "暂停")}</button>
+    <button on:click={reset}>{paused ? "重置" : "计次"}</button>
 </div>
