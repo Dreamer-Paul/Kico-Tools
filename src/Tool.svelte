@@ -18,31 +18,31 @@
     }
 
     // 时间转计次
-    export function timeToCount(min, sec){
+    export function timeToCount(min, sec) {
         return (min * 60 * 100) + (sec * 100);
     }
 
     // 获取当前时间
-    export function getTime(){
+    export function getTime() {
         let date = new Date(), hour = date.getHours(), min = date.getMinutes(), sec = date.getSeconds();
 
         return [zeroFill(hour) + ":" + zeroFill(min) + ":" + zeroFill(sec), hour, min, sec];
     }
 
     // 保存记录的时间
-    export function saveTime(arr){
+    export function saveTime(arr) {
         localStorage.setItem("kico-time", JSON.stringify(arr));
     }
 
     // 读取记录的时间
-    export function loadTime(){
+    export function loadTime() {
         const time = localStorage.getItem("kico-time");
 
         return time ? JSON.parse(time) : [];
     }
 
     // 类名处理
-    export function clsn(...clsn){
+    export function clsn(...clsn) {
         return clsn.filter(item => item).join(" ");
     }
 </script>

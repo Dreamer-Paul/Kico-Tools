@@ -1,5 +1,4 @@
 <script>
-    import { onMount } from "svelte";
     import { clsn } from "../../Tool.svelte";
 
     export let className = "";
@@ -36,13 +35,15 @@
         bottom: 0;
         height: 80%;
         position: absolute;
+        visibility: hidden;
         background-color: #fff;
         transform: translateY(110%);
-        transition: transform .3s;
+        transition: visibility .3s, transform .3s;
         box-shadow: 0 1px 5px 1px rgba(0, 0, 0, .1), 0 0 5px rgba(0, 0, 0, .1);
     }
 
     .tool-drawer.active {
+        visibility: visible;
         transform: translateY(0);
         outline: rgba(0, 0, 0, .3) 100em solid;
     }

@@ -1,17 +1,24 @@
 /* 重置 */
-:root{
+:root {
     --kt-red: red;
 }
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+button {
+    border: none;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+    background: none;
+}
+
 input, select {
     width: 100%;
-    outline: none;
     color: inherit;
     background: none;
     -webkit-appearance: none;
@@ -55,18 +62,10 @@ body {
         border-radius: 0;
     }
 
-    .kico-tools .tool-head{
+    .kico-tools .tool-head {
         overflow: auto;
         white-space: nowrap;
     }
-}
-
-.kico-tools button{
-    border: none;
-    font: inherit;
-    outline: none;
-    cursor: pointer;
-    background: none;
 }
 
 
@@ -91,14 +90,14 @@ body {
 
 
 /* 模式 */
-.kico-tools .tool-head{
+.kico-tools .tool-head {
     z-index: 2;
     color: #fff;
     text-align: center;
     background: #3498db;
 }
 
-.kico-tools .tool-head span{
+.kico-tools .tool-head button {
     cursor: pointer;
     min-width: 5.5em;
     position: relative;
@@ -107,11 +106,11 @@ body {
     transition: text-shadow .3s;
 }
 
-.kico-tools .tool-head span:hover{
+.kico-tools .tool-head button:hover {
     text-shadow: 0 0 5px #fff;
 }
 
-.kico-tools .tool-head span.active:before{
+.kico-tools .tool-head button.active:before {
     bottom: 0;
     left: calc(50% - .5em);
     content: "";
@@ -121,15 +120,9 @@ body {
     border-bottom-color: #fff;
 }
 
-.kico-tools .tool-head:after{
-    content: "";
-    clear: both;
-    display: block;
-}
-
 
 /* 内容 */
-.kico-tools .tool-content{
+.kico-tools .tool-content {
     height: 25em;
     display: flex;
     flex: 1 1 auto;
@@ -140,12 +133,12 @@ body {
     flex-direction: column;
 }
 
-.kico-tools .tool-heading{
+.kico-tools .tool-heading {
     padding: 2em 0;
 }
 
 
-/* Todo: 提示 */
+/* 提示 */
 .kico-tools .tool-notice {
     top: 0;
     left: 0;
@@ -179,7 +172,7 @@ body {
     transform: rotate(180deg);
 }
 
-.kico-tools .tool-clock::after{
+.kico-tools .tool-clock::after {
     content: "";
     width: .5em;
     height: .5em;
@@ -190,7 +183,7 @@ body {
     border-radius: 1em;
 }
 
-.tool-clock .clock-hour, .tool-clock .clock-min, .tool-clock .clock-sec{
+.tool-clock .clock-hour, .tool-clock .clock-min, .tool-clock .clock-sec {
     width: 2px;
     height: 3.5em;
     margin-left: -1px;
@@ -204,18 +197,18 @@ body {
     /* transition-timing-function: cubic-bezier(.18, .89, .32, 1.28); */
 }
 
-.tool-clock .clock-hour{
+.tool-clock .clock-hour {
     width: 3px;
     margin-left: -1.5px;
     background: #999;
 }
 
-.tool-clock .clock-min{
+.tool-clock .clock-min {
     height: 5em;
     background: #ccc;
 }
 
-.tool-clock .clock-sec{
+.tool-clock .clock-sec {
     height: 5.5em;
     background: var(--kt-red);
 }
@@ -224,7 +217,7 @@ body {
 /* 输入框 */
 .kico-tools .tool-content time,
 .kico-tools .tool-content span,
-.kico-tools .tool-content input{
+.kico-tools .tool-content input {
     display: block;
     font-size: 2.5em;
     font-family: "Azeret Mono", monospace;

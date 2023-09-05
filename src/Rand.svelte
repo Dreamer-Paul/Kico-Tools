@@ -10,25 +10,25 @@
     let timer, paused = true, currentRand = 0;
     let lastResults = [];
 
-    let audio = new Audio("static/random.mp3");
-        audio.setAttribute("loop", true);
+    const audio = new Audio("static/random.mp3");
+    audio.setAttribute("loop", true);
 
-    function rand(min, max){
+    function rand(min, max) {
         return Math.floor(Math.random() * (Math.floor(parseInt(min)) - parseInt(max))) + Math.ceil(parseInt(max));
     }
 
-    function interval(){
+    function interval() {
         currentRand = rand(min, max);
     }
 
     // 开始与暂停
     function start() {
-        if(paused){
+        if (paused) {
             paused = false;
-            if(!timer) timer = setInterval(interval, 100);
+            if (!timer) timer = setInterval(interval, 100);
             audio.play();
         }
-        else{
+        else {
             paused = true;
             timer = clearInterval(timer);
             audio.pause();

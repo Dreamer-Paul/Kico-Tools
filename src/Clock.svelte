@@ -4,15 +4,19 @@
     import { clsn, getTime, loadTime, saveTime, zeroFill } from "./Tool.svelte";
     import AddClock from "./components/clock/AddClock.svelte";
 
-    let time, currentTime = "00:00:00";
-    let hour, min, sec;
+    // 展示内容
+    let [displayTime, hour, min, sec] = getTime();
+    let hourDeg = (hour * 30) + (min / 2);
+    let minDeg = (min * 6) + (sec / 10);
+    let secDeg = sec * 6;
 
-    let audio = new Audio();
+    // 闹钟
+    let clocks = loadTime();
 
-    audio.src = "static/timer.mp3";
+    // 响铃
+    const audio = new Audio("static/timer.mp3");
     audio.setAttribute("loop", true);
 
-    let clocks = loadTime();
     let alertVisible = false;
 
     const checkTimeAndAlert = (hour, min) => {
@@ -31,30 +35,24 @@
     }
 
     onMount(() => {
-        time = getTime();
-
-        currentTime = time[0];
-        hour = (time[1] * 30) + (time[2] / 2);
-        min = (time[2] * 6) + (time[3] / 10);
-        sec = time[3] * 6;
-
         const interval = setInterval(() => {
-            time = getTime();
+            const [newDisplayTime, hour, min, sec] = getTime();
 
-            currentTime = time[0];
-            hour = (time[1] * 30) + (time[2] / 2);
-            min = (time[2] * 6) + (time[3] / 10);
-            sec = time[3] * 6;
+            displayTime = newDisplayTime;
+            hourDeg = (hour * 30) + (min / 2);
+            minDeg = (min * 6) + (sec / 10);
+            secDeg = sec * 6;
 
             // 只有秒是 0 的时候才判断是否需要响铃
-            if (time[3] === 0) {
-                checkTimeAndAlert(time[1], time[2]);
+            if (sec === 0) {
+                checkTimeAndAlert(hour, min);
             }
         }, 1000);
 
         return () => clearInterval(interval);
     });
 
+    // 增加闹钟
     let drawerVisible = false;
 
     const setVisible = () => {
@@ -74,11 +72,11 @@
 <div class="tool-content">
     <div class="tool-heading">
         <div class="tool-clock">
-            <div class="clock-min" style="transform: rotate({min}deg)"></div>
-            <div class="clock-hour" style="transform: rotate({hour}deg)"></div>
-            <div class="clock-sec" style="transform: rotate({sec}deg)"></div>
+            <div class="clock-min" style="transform: rotate({minDeg}deg)"></div>
+            <div class="clock-hour" style="transform: rotate({hourDeg}deg)"></div>
+            <div class="clock-sec" style="transform: rotate({secDeg}deg)"></div>
         </div>
-        <time>{currentTime}</time>
+        <time>{displayTime}</time>
     </div>
     <ul class="tool-reconds">
         {#each clocks as item}

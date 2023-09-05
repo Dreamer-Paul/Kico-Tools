@@ -9,21 +9,21 @@
 
     let min = 0, sec = 30;
     let timer, paused = true, stopped = true;
-    let count = 0, time = "00:00.00";
+    let count = 0;
+    let displayTime = "00:00.00";
 
-    let audio = new Audio();
-
-    audio.src = "static/timer.mp3";
+    // 响铃
+    const audio = new Audio("static/timer.mp3");
     audio.setAttribute("loop", true);
 
     let alertVisible = false;
 
-    function interval(){
-        if(count > 1){
+    function interval() {
+        if (count > 1) {
             count--;
-            time = countToTime(count);
+            displayTime = countToTime(count);
         }
-        else{
+        else {
             count--;
             paused = true;
             stopped = true;
@@ -38,21 +38,22 @@
     // 开始和暂停
     function start() {
         // 从头开始
-        if(stopped){
+        if (stopped) {
             paused = false;
             stopped = false;
 
             count = timeToCount(min, sec);
-            if(!timer) timer = setInterval(interval, 10);
+
+            if (!timer) timer = setInterval(interval, 10);
         }
         // 继续
-        else if(paused){
+        else if (paused) {
             paused = false;
 
-            if(!timer) timer = setInterval(interval, 10);
+            if (!timer) timer = setInterval(interval, 10);
         }
         // 暂停
-        else{
+        else {
             paused = true;
             timer = clearInterval(timer);
         }
@@ -87,12 +88,9 @@
                 <span>秒</span>
             </div>
         {:else}
-            <span class="number">{time}</span>
+            <span class="number">{displayTime}</span>
         {/if}
     </div>
-    <ul class="tool-reconds">
-
-    </ul>
 </div>
 <div class="tool-foot">
     <button on:click={start}>{stopped ? "开始" : (paused ? "继续" : "暂停")}</button>

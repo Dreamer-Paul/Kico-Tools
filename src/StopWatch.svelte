@@ -5,25 +5,27 @@
 
     onDestroy(() => {
         reset();
-    })
+    });
 
     let timer, paused = true, stopped = true;
-    let count = 0, time = "00:00.00";
+    let count = 0;
+    let displayTime = "00:00.00";
     let lastResults = [];
 
-    function interval(){
+    function interval() {
         count++;
-        time = countToTime(count);
+        displayTime = countToTime(count);
     }
 
     // 开始与暂停
     function start() {
-        if(paused){
+        if (paused) {
             paused = false;
             stopped = false;
-            if(!timer) timer = setInterval(interval, 10);
+
+            if (!timer) timer = setInterval(interval, 10);
         }
-        else{
+        else {
             paused = true;
             timer = clearInterval(timer);
         }
@@ -31,9 +33,9 @@
 
     // 重置与计次
     function reset() {
-        if(paused){
+        if (paused) {
             count = 0;
-            time = "00:00.00";
+            displayTime = "00:00.00";
             paused = true;
             stopped = true;
 
@@ -41,15 +43,15 @@
 
             timer = clearInterval(timer);
         }
-        else{
-            lastResults = [time, ...lastResults];
+        else {
+            lastResults = [displayTime, ...lastResults];
         }
     }
 </script>
 
 <div class="tool-content">
     <div class="tool-heading">
-        <span class="number">{time}</span>
+        <span class="number">{displayTime}</span>
     </div>
     <ul class="tool-reconds">
         {#each lastResults as item}

@@ -4,9 +4,10 @@
     import StopWatch from "./StopWatch.svelte";
     import Rand from "./Rand.svelte";
 
-    let currentTab = 0, tabs = ["时钟", "倒计时", "秒表", "随机数"];
+    let currentTab = 0;
+    let tabs = ["时钟", "倒计时", "秒表", "随机数"];
 
-    function setTab(id){
+    function setTab(id) {
         currentTab = id;
     }
 </script>
@@ -14,7 +15,7 @@
 <main class="kico-tools">
     <div class="tool-head">
         {#each tabs as tab, index}
-            <span class={currentTab === index ? "active" : ""} on:click={() => setTab(index)}>{tab}</span>
+            <button class={currentTab === index ? "active" : ""} on:click={() => setTab(index)}>{tab}</button>
         {/each}
     </div>
     {#if currentTab === 0}
