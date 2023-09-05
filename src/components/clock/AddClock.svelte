@@ -49,7 +49,7 @@
         </select>
         <span>分</span>
     </div>
-    <button slot="footer" on:click={onConfirm(inputHour, inputMin)}>添加闹钟</button>
+    <button slot="footer" on:click={onConfirm(inputHour, inputMin)}>存储</button>
 </Drawer>
 
 <style>

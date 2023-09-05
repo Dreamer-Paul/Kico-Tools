@@ -1,12 +1,18 @@
 <script>
+    import { onMount } from "svelte";
     import { clsn } from "../../Tool.svelte";
 
     export let className = "";
     export let title = "标题";
     export let visible = false;
     export let onClose = () => {};
+
+    const onKeyUp = (ev) => {
+        ev.key === "Escape" && onClose();
+    };
 </script>
 
+<svelte:body on:keyup={onKeyUp} />
 <div class={clsn("tool-drawer", visible && "active", className)}>
     <header>
         <h1 class="title">{title}</h1>
@@ -15,9 +21,12 @@
     <main>
         <slot name="content">这是一个抽屉，添加一个子元素使它生效</slot>
     </main>
-    <footer class="tool-foot">
-        <slot name="footer"></slot>
-    </footer>
+    {#if $$slots.footer}
+        <footer class="tool-foot">
+            <slot name="footer"></slot>
+            <button on:click={onClose}>取消</button>
+        </footer>
+    {/if}
 </div>
 
 <style>
@@ -35,6 +44,7 @@
 
     .tool-drawer.active {
         transform: translateY(0);
+        outline: rgba(0, 0, 0, .3) 100em solid;
     }
 
     .tool-drawer header {
