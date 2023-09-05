@@ -1,7 +1,7 @@
 <!-- 倒计时 -->
 <script>
     import { onDestroy } from "svelte";
-    import { countToTime, timeToCount } from "./Tool.svelte";
+    import { clsn, countToTime, timeToCount } from "./Tool.svelte";
 
     onDestroy(() => {
         reset();
@@ -16,6 +16,8 @@
     audio.src = "static/timer.mp3";
     audio.setAttribute("loop", true);
 
+    let alertVisible = false;
+
     function interval(){
         if(count > 1){
             count--;
@@ -28,6 +30,8 @@
             timer = clearInterval(timer);
 
             audio.play();
+
+            alertVisible = true;
         }
     }
 
@@ -65,9 +69,14 @@
 
         audio.pause();
         audio.currentTime = 0;
+
+        alertVisible = false;
     }
 </script>
 
+<div class={clsn("tool-notice", alertVisible && "active")}>
+    倒计时已到！<button on:click={reset}>取消</button>
+</div>
 <div class="tool-content">
     <div class="tool-heading">
         {#if stopped && paused}

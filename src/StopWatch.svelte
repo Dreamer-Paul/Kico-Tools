@@ -48,7 +48,6 @@
 </script>
 
 <div class="tool-content">
-    <div class="tool-notice"></div>
     <div class="tool-heading">
         <span class="number">{time}</span>
     </div>
